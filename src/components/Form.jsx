@@ -26,7 +26,12 @@ export default function App() {
             data-netlify='true'
             data-netlify-honeypot='bot-field'
          >
-            <input type='hidden' name='form-name' value='contact' />
+            <input
+               type='hidden'
+               name='form-name'
+               value='contact'
+               method='post'
+            />
             <div className='form-control'>
                <label>Email</label>
                <input
