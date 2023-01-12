@@ -13,6 +13,17 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
    </head>
    <body>
       <Header title={SITE_TITLE} />
+      <form name='test' netlify>
+         <p>
+            <label>Name <input type='text' name='name' /></label>
+         </p>
+         <p>
+            <label>Email <input type='email' name='email' /></label>
+         </p>
+         <p>
+            <button type='submit'>Send</button>
+         </p>
+      </form>
       <Form client:load />
       <!-- <main>
          <h1>🧑‍🚀 Hello, Astronaut!</h1>

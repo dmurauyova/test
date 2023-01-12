@@ -18,7 +18,7 @@ export default function App() {
    };
 
    const onSubmit = (data, e) => {
-      console.log(data);
+      console.log(e.target.getAttribute("name"));
       fetch("/", {
          method: "POST",
          headers: { "Content-Type": "application/x-www-form-urlencoded" },
