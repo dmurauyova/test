@@ -8,11 +8,24 @@ export default function App() {
       formState: { errors },
    } = useForm();
 
-   const onSubmit = (data) => {
+   const encode = (data) => {
+      return Object.keys(data)
+         .map(
+            (key) =>
+               encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+         )
+         .join("&");
+   };
+
+   const onSubmit = (data, e) => {
+      console.log(data);
       fetch("/", {
          method: "POST",
          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-         ...data,
+         body: encode({
+            "form-name": e.target.getAttribute("name"),
+            ...data,
+         }),
       })
          .then((response) => console.log(response))
          .catch((error) => alert(error));
