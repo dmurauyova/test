@@ -9,7 +9,13 @@ export default function App() {
    } = useForm();
 
    const onSubmit = (data) => {
-      console.log(data);
+      fetch("/", {
+         method: "POST",
+         headers: { "Content-Type": "application/x-www-form-urlencoded" },
+         ...data,
+      })
+         .then(() => console.log("Form successfully submitted"))
+         .catch((error) => alert(error));
    };
 
    return (
